@@ -18,6 +18,10 @@ interface IOrderbook {
 		return new Timeseries(getAsks().map[new Point(price, getCumulativeAskAt(price.doubleValue())) as IPoint].toList())
 	}
 	
+	def createMidTimeseries() {
+		return new Timeseries((0 ..< Math.min(bids.size(), asks.size())).map[new Point(it, getMid(it)) as IPoint].toList())
+	}
+	
 	def getCumulativeBidAt(double atPrice) {
 		return getBids().filter[price.doubleValue() >= atPrice].map[amount.doubleValue()].reduce[a,b|a+b]
 	}
@@ -32,6 +36,14 @@ interface IOrderbook {
 	
 	def sumAsk() {
 		return getAsks().map[amount.doubleValue()].reduce[a,b|a+b]
+	}
+	
+	def getMid() {
+		return getMid(0)
+	}
+	
+	def getMid(int index) {
+		return (getBids().get(index).price.doubleValue()+getAsks().get(index).price.doubleValue())/2
 	}
 	
 }
