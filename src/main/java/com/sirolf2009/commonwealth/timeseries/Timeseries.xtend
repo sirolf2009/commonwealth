@@ -9,4 +9,8 @@ import org.eclipse.xtend.lib.annotations.Delegate
 	@Delegate
 	val List<IPoint> points
 	
+	new(List<IPoint> points) {
+		this.points = points.sortBy[x.doubleValue()].toList()
+	}
+	
 }
