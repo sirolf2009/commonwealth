@@ -1,28 +1,13 @@
 package com.sirolf2009.commonwealth.timeseries.indicators
 
-import com.sirolf2009.commonwealth.timeseries.IPoint
-import com.sirolf2009.commonwealth.timeseries.Point
-import com.sirolf2009.commonwealth.timeseries.Timeseries
-import org.junit.Test
 import org.junit.Assert
+import org.junit.Test
+
+import static com.sirolf2009.commonwealth.timeseries.indicators.IndicatorTestExtensions.*
 
 class SMATest {
 	
-	val points = #[
-		new Point(0, 98d),
-		new Point(1, 99d),
-		new Point(2, 100d),
-		new Point(3, 99d),
-		new Point(4, 98d),
-		new Point(5, 99d),
-		new Point(6, 100d),
-		new Point(7, 101d),
-		new Point(8, 100d),
-		new Point(9, 99d),
-		new Point(10, 98d),
-		new Point(11, 200d)
-	].map[it as IPoint].toList()
-	val series = new Timeseries(points)
+	val series = timeseries(98d, 99d, 100d, 99d, 98d, 99d, 100d, 101d, 100d, 99d, 98d, 200d)
 	
 	@Test
 	def void test() {
