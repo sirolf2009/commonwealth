@@ -10,6 +10,7 @@ import com.sirolf2009.commonwealth.trading.orderbook.LimitOrder
 import com.sirolf2009.commonwealth.trading.orderbook.Orderbook
 import java.util.List
 import java.util.concurrent.atomic.AtomicLong
+import java.util.Collection
 
 class IndicatorTestExtensions {
 	
@@ -31,6 +32,10 @@ class IndicatorTestExtensions {
 	
 	def static IOrderbook orderbook(double bid, double ask) {
 		return new Orderbook(#[order(ask)], #[order(bid)])
+	}
+	
+	def static IOrderbook orderbook(Collection<ILimitOrder> bids, Collection<ILimitOrder> asks) {
+		return new Orderbook(asks, bids)
 	}
 	
 	def static order(double price) {
