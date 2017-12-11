@@ -19,7 +19,7 @@ class BidAvgDiff implements Function<List<IOrderbook>, ITimeseries> {
 
 	def static bidAvgDiff(IOrderbook orderbook) {
 		return IntStream.range(0, orderbook.bids.size() - 1).mapToDouble [ i |
-			orderbook.bids.get(i + 1).price.doubleValue() - orderbook.bids.get(i).price.doubleValue()
+			orderbook.bids.get(i).price.doubleValue() - orderbook.bids.get(i + 1).price.doubleValue()
 		].average()
 	}
 
