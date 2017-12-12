@@ -1,4 +1,4 @@
-package com.sirolf2009.commonwealth.timeseries.indicators
+package com.sirolf2009.commonwealth.indicator.line
 
 import com.sirolf2009.commonwealth.timeseries.IPoint
 import com.sirolf2009.commonwealth.timeseries.ITimeseries

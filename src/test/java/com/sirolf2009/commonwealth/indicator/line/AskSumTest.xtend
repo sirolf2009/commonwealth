@@ -1,8 +1,9 @@
-package com.sirolf2009.commonwealth.timeseries.indicators
+package com.sirolf2009.commonwealth.indicator.line
 
-import static extension com.sirolf2009.commonwealth.timeseries.indicators.IndicatorTestExtensions.*
-import org.junit.Test
 import org.junit.Assert
+import org.junit.Test
+
+import static com.sirolf2009.commonwealth.indicator.line.IndicatorTestExtensions.*
 
 class AskSumTest {
 	
