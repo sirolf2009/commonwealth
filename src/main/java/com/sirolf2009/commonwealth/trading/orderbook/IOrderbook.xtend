@@ -1,12 +1,14 @@
 package com.sirolf2009.commonwealth.trading.orderbook
 
-import java.util.Collection
+import com.sirolf2009.commonwealth.timeseries.IPoint
 import com.sirolf2009.commonwealth.timeseries.Point
 import com.sirolf2009.commonwealth.timeseries.Timeseries
-import com.sirolf2009.commonwealth.timeseries.IPoint
+import java.util.Collection
+import java.util.Date
 
 interface IOrderbook {
 	
+	def Date getTimestamp()
 	def Collection<ILimitOrder> getBids()
 	def Collection<ILimitOrder> getAsks()
 	

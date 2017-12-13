@@ -8,9 +8,10 @@ import com.sirolf2009.commonwealth.trading.orderbook.ILimitOrder
 import com.sirolf2009.commonwealth.trading.orderbook.IOrderbook
 import com.sirolf2009.commonwealth.trading.orderbook.LimitOrder
 import com.sirolf2009.commonwealth.trading.orderbook.Orderbook
+import java.util.Collection
+import java.util.Date
 import java.util.List
 import java.util.concurrent.atomic.AtomicLong
-import java.util.Collection
 
 class IndicatorTestExtensions {
 	
@@ -27,15 +28,15 @@ class IndicatorTestExtensions {
 	}
 	
 	def static IOrderbook orderbook(double bid, double bidAmount, double ask, double askAmount) {
-		return new Orderbook(#[order(bid, bidAmount)], #[order(ask, askAmount)])
+		return new Orderbook(new Date(), #[order(bid, bidAmount)], #[order(ask, askAmount)])
 	}
 	
 	def static IOrderbook orderbook(double bid, double ask) {
-		return new Orderbook(#[order(ask)], #[order(bid)])
+		return new Orderbook(new Date(), #[order(ask)], #[order(bid)])
 	}
 	
 	def static IOrderbook orderbook(Collection<ILimitOrder> bids, Collection<ILimitOrder> asks) {
-		return new Orderbook(asks, bids)
+		return new Orderbook(new Date(), asks, bids)
 	}
 	
 	def static order(double price) {
