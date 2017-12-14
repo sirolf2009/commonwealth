@@ -1,10 +1,10 @@
 package com.sirolf2009.commonwealth.trading
 
-import com.sirolf2009.commonwealth.timeseries.Point
+import com.sirolf2009.commonwealth.timeseries.IPoint
 
 interface ITrade {
 	
-	def Point getPoint()
+	def IPoint getPoint()
 	def Number getAmount()
 	
 	def Number getPrice() {
