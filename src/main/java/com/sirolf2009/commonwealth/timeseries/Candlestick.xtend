@@ -1,8 +1,10 @@
 package com.sirolf2009.commonwealth.timeseries
 
 import org.eclipse.xtend.lib.annotations.Data
+import com.sirolf2009.util.GSonDTO
+import java.io.Serializable
 
-@Data class Candlestick implements ICandlestick {
+@Data @GSonDTO class Candlestick implements ICandlestick, Serializable {
 	
 	val Number open
 	val Number high

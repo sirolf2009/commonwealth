@@ -3,8 +3,10 @@ package com.sirolf2009.commonwealth.trading.orderbook
 import java.util.Collection
 import java.util.Date
 import org.eclipse.xtend.lib.annotations.Data
+import com.sirolf2009.util.GSonDTO
+import java.io.Serializable
 
-@Data class Orderbook implements IOrderbook {
+@Data @GSonDTO class Orderbook implements IOrderbook, Serializable {
 	
 	val Date timestamp
 	val Collection<ILimitOrder> asks
