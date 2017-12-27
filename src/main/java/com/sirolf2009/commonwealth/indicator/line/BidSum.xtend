@@ -13,4 +13,8 @@ class BidSum extends LineIndicator {
 		return orderbook.bids.map[amount.doubleValue()].reduce[a,b|a+b]
 	}
 	
+	override copy() {
+		return new BidSum()
+	}
+	
 }

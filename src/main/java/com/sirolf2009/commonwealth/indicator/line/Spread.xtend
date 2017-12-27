@@ -13,4 +13,8 @@ class Spread extends LineIndicator {
 		return orderbook.asks.get(0).price.doubleValue() - orderbook.bids.get(0).price.doubleValue()
 	}
 	
+	override copy() {
+		return new Spread()
+	}
+	
 }

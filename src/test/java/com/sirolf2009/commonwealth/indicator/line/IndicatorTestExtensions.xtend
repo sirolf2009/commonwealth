@@ -28,7 +28,7 @@ class IndicatorTestExtensions {
 	}
 	
 	def static ITick tick(IOrderbook orderbook, List<ITrade> trades) {
-		tick(new Date(), orderbook, trades)
+		tick(trades.last.point.date, orderbook, trades)
 	}
 	
 	def static ITick tick(Date timestamp, IOrderbook orderbook, List<ITrade> trades) {

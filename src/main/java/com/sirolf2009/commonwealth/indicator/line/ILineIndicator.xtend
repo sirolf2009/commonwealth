@@ -5,4 +5,6 @@ import com.sirolf2009.commonwealth.timeseries.IPoint
 
 interface ILineIndicator extends IIndicator<IPoint> {
 	
+	def ILineIndicator copy()
+	
 }

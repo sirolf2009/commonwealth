@@ -13,4 +13,8 @@ class AskSum extends LineIndicator {
 		return orderbook.asks.map[amount.doubleValue()].reduce[a,b|a+b]
 	}
 	
+	override copy() {
+		return new AskSum()
+	}
+	
 }
