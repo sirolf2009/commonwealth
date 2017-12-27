@@ -5,8 +5,10 @@ import com.sirolf2009.commonwealth.trading.orderbook.IOrderbook
 import java.util.Date
 import java.util.List
 import org.eclipse.xtend.lib.annotations.Data
+import com.sirolf2009.util.GSonDTO
+import java.io.Serializable
 
-@Data class Tick implements ITick {
+@Data @GSonDTO class Tick implements ITick, Serializable {
 	
 	val Date timestamp
 	val IOrderbook orderbook
