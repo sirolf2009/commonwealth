@@ -8,19 +8,19 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor
 @FinalFieldsConstructor class SMA extends LineIndicator {
 	
 	val buffer = new LinkedList<IPoint>()
-	val long perMillis
+	val int period
 	val ILineIndicator indicator
 	
 	override get(ITick tick) {
 		buffer.add(indicator.apply(tick))
-		while(buffer.last.x.longValue - buffer.peek().x.longValue > perMillis) {
+		while(buffer.size() > period) {
 			buffer.pop()
 		}
 		return buffer.stream.mapToDouble[y.doubleValue()].average().orElse(Double.NaN)
 	}
 	
 	override copy() {
-		return new SMA(perMillis, indicator)
+		return new SMA(period, indicator)
 	}
 	
 }
