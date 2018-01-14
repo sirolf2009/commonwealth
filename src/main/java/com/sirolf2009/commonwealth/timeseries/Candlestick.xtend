@@ -3,15 +3,18 @@ package com.sirolf2009.commonwealth.timeseries
 import org.eclipse.xtend.lib.annotations.Data
 import com.sirolf2009.util.GSonDTO
 import java.io.Serializable
+import java.util.Date
 
 @Data @GSonDTO class Candlestick implements ICandlestick, Serializable {
 	
+	val Date timestamp
 	val Number open
 	val Number high
 	val Number low
 	val Number close
 	
-	new(Number open, Number high, Number low, Number close) {
+	new(Date timestamp, Number open, Number high, Number low, Number close) {
+		this.timestamp = timestamp
 		this.open = open
 		this.high = high
 		this.low = low
