@@ -7,6 +7,10 @@ interface ITrade {
 	def IPoint getPoint()
 	def Number getAmount()
 	
+	def getDate() {
+		return getPoint().getDate()
+	}
+	
 	def Number getPrice() {
 		return getPoint().y.doubleValue()
 	}
