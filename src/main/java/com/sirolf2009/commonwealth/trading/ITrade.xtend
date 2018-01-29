@@ -11,4 +11,12 @@ interface ITrade {
 		return getPoint().y.doubleValue()
 	}
 	
+	def boolean bought() {
+		return getAmount().doubleValue() > 0
+	}
+	
+	def boolean sold() {
+		return getAmount().doubleValue() < 0
+	}
+	
 }
