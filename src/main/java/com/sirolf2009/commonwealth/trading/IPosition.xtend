@@ -8,11 +8,19 @@ interface IPosition {
 	def Number getExitFee()
 	def PositionType getPositionType()
 	
+	def isLong() {
+		return positionType == PositionType.LONG
+	}
+	
+	def isShort() {
+		return positionType == PositionType.SHORT
+	}
+	
 	def getProfit() {
-		if(positionType == PositionType.LONG) {
-			return getExit().point.y.doubleValue() - getEntry().point.y.doubleValue() - getFees()
+		if(isLong()) {
+			return getExit().getPrice().doubleValue() - getEntry().getPrice().doubleValue() - getFees()
 		} else {
-			return getEntry().point.y.doubleValue() - getExit().point.y.doubleValue() - getFees()
+			return getEntry().getPrice().doubleValue() - getExit().getPrice().doubleValue() - getFees()
 		}
 	}
 	
