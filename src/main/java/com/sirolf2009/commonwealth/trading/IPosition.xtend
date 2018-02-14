@@ -8,6 +8,18 @@ interface IPosition {
 	def Number getExitFee()
 	def PositionType getPositionType()
 	
+	def getProfitPercentage() {
+		return getProfit() / (getEntryPrice().doubleValue() * Math.abs(getSize().doubleValue())) * 100
+	}
+	
+	def getProfit() {
+		if(isLong()) {
+			return (getExitPrice().doubleValue() - getEntryPrice().doubleValue()) * getSize().doubleValue() - getFees()
+		} else {
+			return (getEntryPrice().doubleValue() - getExitPrice().doubleValue()) * getSize().doubleValue() - getFees()
+		}
+	}
+	
 	def isLong() {
 		return positionType == PositionType.LONG
 	}
@@ -16,16 +28,20 @@ interface IPosition {
 		return positionType == PositionType.SHORT
 	}
 	
-	def getProfit() {
-		if(isLong()) {
-			return (getExit().getPrice().doubleValue() - getEntry().getPrice().doubleValue()) * entry.getAmount().doubleValue() - getFees()
-		} else {
-			return (getEntry().getPrice().doubleValue() - getExit().getPrice().doubleValue()) * -entry.getAmount().doubleValue() - getFees()
-		}
-	}
-	
 	def getFees() {
 		return getEntryFee().doubleValue() + getExitFee().doubleValue()
+	}
+	
+	def getEntryPrice() {
+		return getEntry().getPrice()
+	}
+	
+	def getExitPrice() {
+		return getEntry().getPrice()
+	}
+	
+	def getSize() {
+		return getEntry().getAmount()
 	}
 	
 }
