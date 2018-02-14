@@ -7,7 +7,7 @@ import com.sirolf2009.commonwealth.trading.analysis.NumberSeries
 
 interface IBacktestResult {
 	
-	def List<IPosition> getTrades()
+	def List<? extends IPosition> getTrades()
 	
 	def getProfits() {
 		return new NumberSeries(trades.stream().map[profit].collect(Collectors.toList()))

@@ -9,8 +9,8 @@ import java.util.Date
 interface IOrderbook {
 	
 	def Date getTimestamp()
-	def Collection<ILimitOrder> getBids()
-	def Collection<ILimitOrder> getAsks()
+	def Collection<? extends ILimitOrder> getBids()
+	def Collection<? extends ILimitOrder> getAsks()
 	
 	def createBidTimeseries() {
 		return new Timeseries(getBids().map[new Point(price, getCumulativeBidAt(price.doubleValue())) as IPoint].toList())

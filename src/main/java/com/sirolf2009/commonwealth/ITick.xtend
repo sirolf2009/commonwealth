@@ -9,6 +9,6 @@ interface ITick {
 	
 	def Date getTimestamp()
 	def IOrderbook getOrderbook()
-	def List<ITrade> getTrades()
+	def List<? extends ITrade> getTrades()
 	
 }
