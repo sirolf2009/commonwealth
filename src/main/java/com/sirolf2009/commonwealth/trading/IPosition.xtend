@@ -16,7 +16,7 @@ interface IPosition {
 		if(isLong()) {
 			return (getExitPrice().doubleValue() - getEntryPrice().doubleValue()) * getSize().doubleValue() - getFees()
 		} else {
-			return (getEntryPrice().doubleValue() - getExitPrice().doubleValue()) * getSize().doubleValue() - getFees()
+			return (getEntryPrice().doubleValue() - getExitPrice().doubleValue()) * -getSize().doubleValue() - getFees()
 		}
 	}
 	
@@ -37,7 +37,7 @@ interface IPosition {
 	}
 	
 	def getExitPrice() {
-		return getEntry().getPrice()
+		return getExit().getPrice()
 	}
 	
 	def getSize() {

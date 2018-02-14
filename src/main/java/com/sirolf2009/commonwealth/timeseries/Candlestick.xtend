@@ -1,11 +1,10 @@
 package com.sirolf2009.commonwealth.timeseries
 
-import org.eclipse.xtend.lib.annotations.Data
-import com.sirolf2009.util.GSonDTO
 import java.io.Serializable
 import java.util.Date
+import org.eclipse.xtend.lib.annotations.Data
 
-@Data @GSonDTO class Candlestick implements ICandlestick, Serializable {
+@Data class Candlestick implements ICandlestick, Serializable {
 	
 	val Date timestamp
 	val Number open
