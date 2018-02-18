@@ -1,6 +1,8 @@
 package com.sirolf2009.commonwealth.trading
 
-interface IPosition {
+import java.io.Serializable
+
+interface IPosition extends Serializable {
 	
 	def ITrade getEntry()
 	def ITrade getExit()
