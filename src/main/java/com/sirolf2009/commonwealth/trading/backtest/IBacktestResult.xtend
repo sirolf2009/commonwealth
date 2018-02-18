@@ -16,5 +16,9 @@ interface IBacktestResult {
 	def getProfitPercentages() {
 		return new NumberSeries(trades.stream().map[profitPercentage].collect(Collectors.toList()))
 	}
+	
+	def getSizes() {
+		return new NumberSeries(trades.stream().map[Math.abs(size.doubleValue)].collect(Collectors.toList()))
+	}
 		
 }
