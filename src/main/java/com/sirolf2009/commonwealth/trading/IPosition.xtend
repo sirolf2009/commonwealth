@@ -8,6 +8,8 @@ interface IPosition extends Serializable {
 	def ITrade getExit()
 	def Number getEntryFee()
 	def Number getExitFee()
+	def Number getMaxDrawdown()
+	def Number getMaxDrawup()
 	def PositionType getPositionType()
 	
 	def getProfitPercentage() {

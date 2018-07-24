@@ -7,6 +7,8 @@ interface IOpenPosition extends Serializable {
 	def ITrade getEntry()
 	def Number getEntryFee()
 	def PositionType getPositionType()
+	def Number getMaxDrawdown()
+	def Number getMaxDrawup()
 	
 	def double getProfitPercentage(Number bid, Number ask) {
 		if(isLong()) {

@@ -9,6 +9,14 @@ interface IBacktestResult {
 	
 	def List<? extends IPosition> getTrades()
 	
+	def getMaxDrawdown() {
+		return new NumberSeries(trades.stream().map[maxDrawdown].collect(Collectors.toList()))
+	}
+	
+	def getMaxDrawup() {
+		return new NumberSeries(trades.stream().map[maxDrawup].collect(Collectors.toList()))
+	}
+	
 	def getProfits() {
 		return new NumberSeries(trades.stream().map[profit].collect(Collectors.toList()))
 	}

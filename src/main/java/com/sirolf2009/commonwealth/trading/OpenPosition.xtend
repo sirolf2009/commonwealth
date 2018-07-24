@@ -7,15 +7,19 @@ import org.eclipse.xtend.lib.annotations.Data
 	
 	val ITrade entry
 	val Number entryFee
+	val Number maxDrawdown
+	val Number maxDrawup
 	val PositionType positionType
 	
-	new(ITrade entry, Number entryFee) {
-		this(entry, entryFee, if(entry.bought()) PositionType.LONG else PositionType.SHORT)
+	new(ITrade entry, Number entryFee, Number maxDrawdown, Number maxDrawup) {
+		this(entry, entryFee, maxDrawdown, maxDrawup, if(entry.bought()) PositionType.LONG else PositionType.SHORT)
 	}
 	
-	new(ITrade entry, Number entryFee, PositionType positionType) {
+	new(ITrade entry, Number entryFee, Number maxDrawdown, Number maxDrawup, PositionType positionType) {
 		this.entry = entry
 		this.entryFee = entryFee
+		this.maxDrawdown = maxDrawdown
+		this.maxDrawup = maxDrawup
 		this.positionType = positionType
 	}
 	
