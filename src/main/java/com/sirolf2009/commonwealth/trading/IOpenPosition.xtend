@@ -1,6 +1,7 @@
 package com.sirolf2009.commonwealth.trading
 
 import java.io.Serializable
+import com.sirolf2009.commonwealth.trading.orderbook.ILimitOrder
 
 interface IOpenPosition extends Serializable {
 	
@@ -9,6 +10,10 @@ interface IOpenPosition extends Serializable {
 	def PositionType getPositionType()
 	def Number getMaxDrawdown()
 	def Number getMaxDrawup()
+	
+	def double getProfitPercentage(ILimitOrder bid, ILimitOrder ask) {
+		return getProfitPercentage(bid.getPrice(), ask.getPrice())
+	}
 	
 	def double getProfitPercentage(Number bid, Number ask) {
 		if(isLong()) {
@@ -20,6 +25,10 @@ interface IOpenPosition extends Serializable {
 	
 	def getProfitPercentage(Number currentPrice) {
 		return getProfit(currentPrice) / (getEntryPrice().doubleValue() * Math.abs(getSize().doubleValue())) * 100
+	}
+	
+	def double getProfit(ILimitOrder bid, ILimitOrder ask) {
+		return getProfit(bid.getPrice(), ask.getPrice())
 	}
 	
 	def double getProfit(Number bid, Number ask) {
