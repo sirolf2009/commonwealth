@@ -17,10 +17,14 @@ interface IPosition extends Serializable {
 	}
 	
 	def getProfit() {
+		return getProfit(getExitPrice())
+	}
+	
+	def getProfit(Number exit) {
 		if(isLong()) {
-			return (getExitPrice().doubleValue() - getEntryPrice().doubleValue()) * getSize().doubleValue() - getFees()
+			return (exit.doubleValue() - getEntryPrice().doubleValue()) * getSize().doubleValue() - getFees()
 		} else {
-			return (getEntryPrice().doubleValue() - getExitPrice().doubleValue()) * -getSize().doubleValue() - getFees()
+			return (getEntryPrice().doubleValue() - exit.doubleValue()) * -getSize().doubleValue() - getFees()
 		}
 	}
 	
