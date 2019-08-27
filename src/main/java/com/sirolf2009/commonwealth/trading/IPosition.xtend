@@ -48,6 +48,7 @@ interface IPosition extends Serializable {
 		return getExit().getPrice()
 	}
 	
+	/** Expected to be negative when the positiontype is short */
 	def getSize() {
 		return getEntry().getAmount()
 	}
